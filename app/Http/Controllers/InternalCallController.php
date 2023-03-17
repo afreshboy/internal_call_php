@@ -24,6 +24,7 @@ class InternalCallController extends Controller
             $body = json_encode($param_map);
             $resp = $util -> internal_call_post($uri, $service_id, $body, $headers);
         }
+        echo $resp;
         return $resp;
     }
 }

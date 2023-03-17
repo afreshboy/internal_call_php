@@ -16,7 +16,6 @@ class InternalCallUtil {
             $url = sprintf("%s%s=%s", $url, $x, $x_value);
             $i++;
         }
-        echo $url;
         curl_setopt ($ch, CURLOPT_URL, $url);
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);

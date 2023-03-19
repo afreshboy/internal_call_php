@@ -5,6 +5,7 @@ namespace App\Utils;
 class InternalCallUtil {
     function internal_call_get(string $uri, string $to_service_id, array $param_map, array $headers): string {
         $from_service_id = getenv("SERVICE_ID");
+        echo $from_service_id ;
         $url = sprintf("http://%s-%s.dycloud.service%s", $from_service_id, $to_service_id, $uri);
         $ch = curl_init();
         $timeout = 5;
@@ -21,16 +22,17 @@ class InternalCallUtil {
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $file_contents = curl_exec($ch);
+        echo $file_contents;
         curl_close($ch);
         return $file_contents;
     }
 
     function internal_call_post(string $uri, string $to_service_id, string $body, array $headers): string {
         $from_service_id = getenv("SERVICE_ID");
+        echo $from_service_id ;
         $url = sprintf("http://%s-%s.dycloud.service%s", $from_service_id, $to_service_id, $uri);
         $ch = curl_init();
         $timeout = 5;
-        echo $url;
         curl_setopt ($ch, CURLOPT_URL, $url);
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);

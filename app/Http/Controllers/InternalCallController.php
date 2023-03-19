@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class InternalCallController extends Controller
 {
     function internal_call(Request $request) : string {
-        echo "internalcallget";
         $service_id = $request -> header("X-SERVICE-ID", "");
         $method = $request -> header("X-SERVICE-METHOD", "");
         $uri = $request -> header("X-SERVICE-URI", "");
@@ -20,12 +19,10 @@ class InternalCallController extends Controller
         $headers = array("TEST_HEADER"=>"test");
         $param_map = array("num1"=>$num1, "num2"=>$num2);
         if ($method == "GET") {
-            echo "$service_id, $method, $uri, $num1, $num2";
             $resp = $util -> internal_call_get($uri, $service_id, $param_map, $headers);
         } elseif ($method == "POST") {
             $resp = $util -> internal_call_post($uri, $service_id, $param_map, $headers);
         }
-        echo $resp;
         return $resp;
     }
 }

@@ -15,8 +15,12 @@ class InternalCallUtil {
                $url .= "?";
             }
             $url = sprintf("%s%s=%s", $url, $x, $x_value);
+            if ($i < count($param_map) - 1) {
+                $url .= "&";
+            }
             $i++;
         }
+        echo $url;
         curl_setopt ($ch, CURLOPT_URL, $url);
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
@@ -27,12 +31,13 @@ class InternalCallUtil {
         return $file_contents;
     }
 
-    function internal_call_post(string $uri, string $to_service_id, string $body, array $headers): string {
+    function internal_call_post(string $uri, string $to_service_id, array $body, array $headers): string {
         $from_service_id = getenv("SERVICE_ID");
         echo $from_service_id ;
         $url = sprintf("http://%s-%s.dycloud.service%s", $from_service_id, $to_service_id, $uri);
         $ch = curl_init();
         $timeout = 5;
+        echo $url;
         curl_setopt ($ch, CURLOPT_URL, $url);
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
@@ -41,6 +46,7 @@ class InternalCallUtil {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
         $file_contents = curl_exec($ch);
         curl_close($ch);
+        echo $file_contents;
         return $file_contents;
     }
 }

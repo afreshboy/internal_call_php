@@ -512,13 +512,6 @@ class ComposerStaticInita1547f3894f4371d1acbaeeb815d2c9b
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
         ),
-        'C' => 
-        array (
-            'Curl' => 
-            array (
-                0 => __DIR__ . '/..' . '/curl/curl/src',
-            ),
-        ),
     );
 
     public static $classMap = array (
@@ -654,7 +647,6 @@ class ComposerStaticInita1547f3894f4371d1acbaeeb815d2c9b
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
-        'Curl\\Curl' => __DIR__ . '/..' . '/curl/curl/src/Curl/Curl.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',

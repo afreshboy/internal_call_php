@@ -24,7 +24,6 @@ class InternalCallController extends Controller
                 $response = $util->internal_call_get($uri, $service_id, $param_map, $headers);
                 return Response($response);
             } catch (Exception $e) {
-                echo "get error";
                 return Response($e->__toString(), 500);
             }
         } elseif ($method == "POST") {
@@ -32,7 +31,6 @@ class InternalCallController extends Controller
                 $response = $util->internal_call_post($uri, $service_id, $param_map, $headers);
                 return Response($response);
             } catch (Exception $e) {
-                echo "get error";
                 return Response($e->__toString(), 500);
             }
         } else {

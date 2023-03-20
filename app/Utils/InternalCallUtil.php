@@ -2,6 +2,8 @@
 
 namespace App\Utils;
 
+use Exception;
+
 class InternalCallUtil {
     function internal_call_get(string $uri, string $to_service_id, array $param_map, array $headers): string {
         $from_service_id = getenv("SERVICE_ID");
@@ -23,9 +25,20 @@ class InternalCallUtil {
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        $file_contents = curl_exec($ch);
-        curl_close($ch);
-        return $file_contents;
+        try {
+            $file_contents = curl_exec($ch);
+            $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            echo $http_code;
+            if (!($http_code >= 200 && $http_code < 300)) {
+                curl_close($ch);
+                throw new Exception(sprintf("err statuscode: %s", $http_code));
+            }
+            curl_close($ch);
+            return $file_contents;
+        } catch (Exception $e) {
+            curl_close($ch);
+            throw $e;
+        }
     }
 
     function internal_call_post(string $uri, string $to_service_id, array $body, array $headers): string {
@@ -39,8 +52,19 @@ class InternalCallUtil {
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
-        $file_contents = curl_exec($ch);
-        curl_close($ch);
-        return $file_contents;
+        try {
+            $file_contents = curl_exec($ch);
+            $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            echo $http_code;
+            if (!($http_code >= 200 && $http_code < 300)) {
+                curl_close($ch);
+                throw new Exception(sprintf("err statuscode: %s", $http_code));
+            }
+            curl_close($ch);
+            return $file_contents;
+        } catch (Exception $e) {
+            curl_close($ch);
+            throw $e;
+        }
     }
 }

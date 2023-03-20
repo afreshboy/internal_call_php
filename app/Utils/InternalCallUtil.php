@@ -28,7 +28,6 @@ class InternalCallUtil {
         try {
             $file_contents = curl_exec($ch);
             $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            echo $http_code;
             if (!($http_code >= 200 && $http_code < 300)) {
                 curl_close($ch);
                 throw new Exception(sprintf("err statuscode: %s", $http_code));
@@ -55,7 +54,6 @@ class InternalCallUtil {
         try {
             $file_contents = curl_exec($ch);
             $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            echo $http_code;
             if (!($http_code >= 200 && $http_code < 300)) {
                 curl_close($ch);
                 throw new Exception(sprintf("err statuscode: %s", $http_code));

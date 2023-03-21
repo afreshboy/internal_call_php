@@ -20,7 +20,7 @@ RUN sed -i '/^;php_flag/s/;php_flag/php_flag/g' /usr/local/etc/php-fpm.d/www.con
 
 RUN mkdir /var/log/php && chown www-data:www-data /var/log/php/
 
-RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash && apt-get install -y bash && apt-get install -y vim && apt-get -y install systemctl
+RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash && apt-get install -y bash && apt-get install -y vim
 
 RUN docker-php-ext-install curl
 

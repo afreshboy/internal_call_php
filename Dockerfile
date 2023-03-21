@@ -14,18 +14,18 @@ RUN sed -i '/^;php_flag/s/;php_flag/php_flag/g' /usr/local/etc/php-fpm.d/www.con
     && sed -i 's#;access.log = log/$pool.access.log#access.log = /var/log/php/www.access.log#g' /usr/local/etc/php-fpm.d/www.conf \
     && sed -i 's#;slowlog = log/$pool.log.slow#slowlog = /var/log/php/www.log.slow#g' /usr/local/etc/php-fpm.d/www.conf \
     && sed -i 's/;request_slowlog_timeout = 0/request_slowlog_timeout = 10/g' /usr/local/etc/php-fpm.d/www.conf \
-    && sed -i 's/pm.max_children = 5/pm.max_children = 30/g' /usr/local/etc/php-fpm.d/www.conf
+    && sed -i 's/pm.max_children = 5/pm.max_children = 30/g' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's/pm.start_servers = 2/pm.start_servers = 15/g' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's/pm.max_spare_servers = 3/pm.max_spare_servers = 30/g' /usr/local/etc/php-fpm.d/www.conf
 
 RUN mkdir /var/log/php && chown www-data:www-data /var/log/php/
 
-RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash
+RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash && apt-get install -y bash && apt-get install -y vim && apt-get -y install systemctl
 
 RUN docker-php-ext-install curl
 
 WORKDIR /opt/application
 copy . /opt/application
 
+RUN chmod a+x /opt/application/vendor/autoload.php run.sh
 
-RUN apt-get install bash
-RUN chmod a+x /opt/application/vendor/autoload.php
-RUN chmod a+x run.sh

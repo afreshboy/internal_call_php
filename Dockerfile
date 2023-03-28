@@ -38,5 +38,5 @@ RUN chmod -R 777 /opt/application/vendor/autoload.php run.sh /usr/local/log /opt
 
 EXPOSE 8000
 
-CMD /opt/application/run.sh
+#CMD /opt/application/run.sh
 

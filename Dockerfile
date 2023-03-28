@@ -20,9 +20,8 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
 #
 #RUN mkdir /var/log/php && chown www-data:www-data /var/log/php/
 
-RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash && apt-get install -y vim && apt-get install -y nginx
-
-RUN docker-php-ext-install curl
+RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash && apt-get install -y vim && apt-get install -y nginx \
+  && docker-php-ext-install curl
 
 WORKDIR /opt/application
 copy . .
@@ -32,9 +31,12 @@ RUN cp /opt/application/conf/nginx.conf /etc/nginx/conf.d/default.conf \
     && sed -i 's/;clear_env = no/clear_env = no/g' /usr/local/etc/php-fpm.d/www.conf \
     # vefaas会占用9000端口，在9090端口启动php-fpm
     && sed -i 's/listen = 9000/listen = 9090/g' /usr/local/etc/php-fpm.d/zz-docker.conf \
-    && mkdir -p /run/nginx
+    && mkdir -p /run/nginx && mkdir -p /usr/local/log
 
-RUN chmod -R 777 /opt/application/vendor/autoload.php run.sh
+RUN chmod -R 777 /opt/application/vendor/autoload.php run.sh /usr/local/log /opt/application/storage/
+
 
 EXPOSE 8000
+
+CMD /opt/application/run.sh
 

@@ -1,10 +1,10 @@
-FROM php:8
+FROM php:8-fpm
 
-RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak
-RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list \
-    && sed -i 's/;opcache.enable=1/opcache.enable=1/g' /usr/local/etc/php/php.ini-production \
-    && sed -i 's/;opcache.memory_consumption=128/opcache.memory_consumption=128/g' /usr/local/etc/php/php.ini-production \
-    && sed -i 's/;opcache.validate_timestamps=1/opcache.validate_timestamps=60/g' /usr/local/etc/php/php.ini-production
+RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
+    && sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+#    && sed -i 's/;opcache.enable=1/opcache.enable=1/g' /usr/local/etc/php/php.ini-production \
+#    && sed -i 's/;opcache.memory_consumption=128/opcache.memory_consumption=128/g' /usr/local/etc/php/php.ini-production \
+#    && sed -i 's/;opcache.validate_timestamps=1/opcache.validate_timestamps=60/g' /usr/local/etc/php/php.ini-production
 
 #RUN sed -i '/^;php_flag/s/;php_flag/php_flag/g' /usr/local/etc/php-fpm.d/www.conf \
 #    && sed -i '/^php_flag/s/off/on/g' /usr/local/etc/php-fpm.d/www.conf \
@@ -20,12 +20,21 @@ RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.li
 #
 #RUN mkdir /var/log/php && chown www-data:www-data /var/log/php/
 
-RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash && apt-get install -y bash && apt-get install -y vim
+RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash && apt-get install -y vim && apt-get install -y nginx
 
 RUN docker-php-ext-install curl
 
 WORKDIR /opt/application
-copy . /opt/application
+copy . .
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+RUN cp /opt/application/conf/nginx.conf /etc/nginx/conf.d/default.conf \
+    # 关闭清理环境变量设置
+    && sed -i 's/;clear_env = no/clear_env = no/g' /usr/local/etc/php-fpm.d/www.conf \
+    # vefaas会占用9000端口，在9090端口启动php-fpm
+    && sed -i 's/listen = 9000/listen = 9090/g' /usr/local/etc/php-fpm.d/zz-docker.conf \
+    && mkdir -p /run/nginx
 
-RUN chmod a+x /opt/application/vendor/autoload.php run.sh
+RUN chmod -R 777 /opt/application/vendor/autoload.php run.sh
+
+EXPOSE 8000
 

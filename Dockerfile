@@ -20,9 +20,8 @@ RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.li
 #
 #RUN mkdir /var/log/php && chown www-data:www-data /var/log/php/
 
-RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash && apt-get install -y bash && apt-get install -y vim
+RUN apt-get clean && apt-get update && apt-get install -y bash && apt-get install -y bash && apt-get install -y vim
 
-RUN docker-php-ext-install curl
 
 WORKDIR /opt/application
 copy . /opt/application

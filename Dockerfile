@@ -20,8 +20,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
 #
 #RUN mkdir /var/log/php && chown www-data:www-data /var/log/php/
 
-RUN apt-get clean && apt-get update && apt-get install -y libcurl4-openssl-dev && apt-get install -y bash && apt-get install -y vim && apt-get install -y nginx \
-  && docker-php-ext-install curl
+RUN apt-get clean && apt-get update && apt-get install -y bash && apt-get install -y vim && apt-get install -y nginx
 
 WORKDIR /opt/application
 copy . .

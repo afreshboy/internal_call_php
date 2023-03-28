@@ -15,7 +15,7 @@ RUN cp /opt/application/conf/nginx.conf /etc/nginx/conf.d/default.conf \
     && sed -i 's/listen = 9000/listen = 9090/g' /usr/local/etc/php-fpm.d/zz-docker.conf \
     && mkdir -p /run/nginx && mkdir -p /usr/local/log
 
-RUN chmod -R 777 /opt/application/vendor/autoload.php run.sh /usr/local/log /opt/application/storage/ /opt/application/bootstrap
+RUN chmod -R 777 /opt/application/vendor/autoload.php run.sh /usr/local/log /opt/application/storage/
 
 
 EXPOSE 8000

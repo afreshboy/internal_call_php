@@ -15,7 +15,7 @@ class MongodbOp {
     {
         $rows = DB::connection(static::$connection) -> collection($collection) -> where($where);
         $count = $rows -> count();
-        $list = $rows -> find();
+        $list = $rows -> get();
         return array(['count'=>$count, 'list'=>$list]);
     }
 

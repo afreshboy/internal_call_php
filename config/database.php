@@ -40,7 +40,10 @@ return [
             'port' => explode(':', explode(',', getenv('MONGO_ADDRESS'))[0])[1],
             'database' => 'demo',
             'username' => getenv('MONGO_USERNAME'),
-            'password' => getenv('MONGO_PASSWORD')
+            'password' => getenv('MONGO_PASSWORD'),
+            'options'  => [
+                'database' => 'demo'
+            ]
         ],
 
         'sqlite' => [

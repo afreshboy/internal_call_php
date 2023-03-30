@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/v1/ping',
-        '/api/v1/*'
+        '/api/v1/*',
+        '/mongo/*'
     ];
 }

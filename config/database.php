@@ -34,6 +34,14 @@ return [
     */
 
     'connections' => [
+        'mongodb' => [
+           'driver' => 'mongodb',
+           'host' => explode(':', getenv('MONGO_ADDRESS'))[0],
+            'port' => explode(':', explode(',', getenv('MONGO_ADDRESS'))[0])[1],
+            'database' => 'demo',
+            'username' => getenv('MONGO_USERNAME'),
+            'password' => getenv('MONGO_PASSWORD')
+        ],
 
         'sqlite' => [
             'driver' => 'sqlite',

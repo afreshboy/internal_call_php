@@ -31,4 +31,8 @@ Route::prefix('/api/v1')->group(function () {
     Route::get('/internal_call', [\App\Http\Controllers\InternalCallController::class, 'internal_call']);
 });
 
-
+Route::prefix('/mongo')->group(function () {
+    Route::post('/get', [\App\Http\Controllers\MongoController::class, 'get']);
+    Route::post('/insert', [\App\Http\Controllers\MongoController::class, 'insert']);
+    Route::post('/delete', [\App\Http\Controllers\MongoController::class, 'delete']);
+});

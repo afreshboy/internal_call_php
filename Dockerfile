@@ -5,6 +5,10 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
 
 RUN apt-get clean && apt-get update && apt-get install -y bash && apt-get install -y vim && apt-get install -y nginx
 
+RUN pecl update-channels \
+	&& pecl install mongodb \
+    && docker-php-ext-enable mongodb
+
 WORKDIR /opt/application
 copy . .
 COPY --from=composer /usr/bin/composer /usr/bin/composer

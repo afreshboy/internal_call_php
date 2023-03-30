@@ -2,7 +2,6 @@
 
 # 后台启动
 composer install --no-plugins --no-scripts
-php artisan cache:clear
 php-fpm -D
 if [$? -ne 0]; then
   echo "fpm init failed"

@@ -42,7 +42,7 @@ return [
             'username' => getenv('MONGO_USERNAME'),
             'password' => getenv('MONGO_PASSWORD'),
             'options'  => [
-                'database' => 'demo'
+                'database' => 'admin'
             ]
         ],
 

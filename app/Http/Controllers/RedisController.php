@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class RedisController extends Controller
 {
-    public function set(Request $request): bool
+    public function set(Request $request)
     {
         $key = $request->input('key', "test_key");
         $value = $request->input('value', "test_value");

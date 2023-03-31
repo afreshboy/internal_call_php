@@ -37,7 +37,7 @@ return [
 
         'redis' => [
 
-            'client' => env('REDIS_CLIENT', 'predis'),//别名,如果你安装的是PhpRedis，将client值改为phpredis
+            'client' => env('REDIS_CLIENT', 'phpredis'),//别名,如果你安装的是PhpRedis，将client值改为phpredis
 
             'default' => [
                 'host' => explode(':', getenv('REDIS_ADDRESS'))[0],

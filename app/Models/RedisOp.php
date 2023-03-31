@@ -9,7 +9,7 @@ class RedisOp
 {
     public static function set($key, $value) {
         $redis = Redis::connection();
-        return $redis -> set($key, $value, 60);
+        return $redis -> set($key, $value);
     }
 
     public static function get($key) {

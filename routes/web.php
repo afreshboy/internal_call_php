@@ -31,4 +31,8 @@ Route::prefix('/api/v1')->group(function () {
     Route::get('/internal_call', [\App\Http\Controllers\InternalCallController::class, 'internal_call']);
 });
 
+Route::prefix('/redis')->group(function () {
+    Route::post('/get', [\App\Http\Controllers\RedisController::class, 'get']);
+    Route::post('/set', [\App\Http\Controllers\RedisController::class, 'set']);
+});
 

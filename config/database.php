@@ -34,6 +34,15 @@ return [
     */
 
     'connections' => [
+//        'redis' => [
+//            'client' => 'predis',
+//            'default' => [
+//                'host' => explode(':', getenv('REDIS_ADDRESS'))[0],
+//                'port' => explode(':', getenv('REDIS_ADDRESS'))[1],
+//                'password' =>  getenv('REDIS_PASSWORD'),
+//                'database' => 0
+//            ],
+//        ],
 
         'sqlite' => [
             'driver' => 'sqlite',

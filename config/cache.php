@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'file'),
+    'default' => env('CACHE_DRIVER', 'redis'),
 
     /*
     |--------------------------------------------------------------------------
@@ -73,10 +73,13 @@ return [
             ],
         ],
 
-        'redis' => [
-            'driver' => 'redis',
-            'connection' => 'cache',
-            'lock_connection' => 'default',
+        'redis'   =>  [
+            // 驱动方式
+            'driver'   => 'predis',
+            // 服务器地址
+            'host'       => explode(':', getenv('REDIS_ADDRESS'))[0],
+            'port'       => explode(':', getenv('REDIS_ADDRESS'))[1],
+            'password'  =>  getenv('REDIS_PASSWORD'),
         ],
 
         'dynamodb' => [

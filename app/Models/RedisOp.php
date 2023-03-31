@@ -8,13 +8,11 @@ use Illuminate\Support\Facades\Redis;
 class RedisOp
 {
     public static function set($key, $value) {
-        $redis = Redis::connection();
-        return $redis -> set($key, $value);
+        return Redis::set($key, $value);
     }
 
     public static function get($key) {
-        $redis = Redis::connection();
-        return $redis ->get($key);
+        return Redis::get($key);
     }
 
 }

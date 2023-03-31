@@ -3,16 +3,18 @@
 namespace App\Models;
 
 
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 
 class RedisOp
 {
     public static function set($key, $value) {
-        return Cache::store('redis')->set($key, $value, 60);
+        $redis = Redis::connection();
+        return $redis -> set($key, $value, 60);
     }
 
     public static function get($key) {
-        return Cache::store('redis')->get($key);
+        $redis = Redis::connection();
+        return $redis ->get($key);
     }
 
 }

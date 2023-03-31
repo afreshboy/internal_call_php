@@ -73,15 +73,6 @@ return [
             ],
         ],
 
-        'redis'   =>  [
-            // 驱动方式
-            'driver'   => 'predis',
-            // 服务器地址
-            'host'       => explode(':', getenv('REDIS_ADDRESS'))[0],
-            'port'       => explode(':', getenv('REDIS_ADDRESS'))[1],
-            'password'  =>  getenv('REDIS_PASSWORD'),
-        ],
-
         'dynamodb' => [
             'driver' => 'dynamodb',
             'key' => env('AWS_ACCESS_KEY_ID'),

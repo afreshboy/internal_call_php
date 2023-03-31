@@ -34,15 +34,18 @@ return [
     */
 
     'connections' => [
-//        'redis' => [
-//            'client' => 'predis',
-//            'default' => [
-//                'host' => explode(':', getenv('REDIS_ADDRESS'))[0],
-//                'port' => explode(':', getenv('REDIS_ADDRESS'))[1],
-//                'password' =>  getenv('REDIS_PASSWORD'),
-//                'database' => 0
-//            ],
-//        ],
+
+        'redis' => [
+
+            'client' => env('REDIS_CLIENT', 'predis'),//别名,如果你安装的是PhpRedis，将client值改为phpredis
+
+            'default' => [
+                'host' => explode(':', getenv('REDIS_ADDRESS'))[0],
+                'password' => getenv('REDIS_PASSWORD'),
+                'port' => explode(':', getenv('REDIS_ADDRESS'))[1],
+                'database' => env('REDIS_DB', 0),
+            ]
+        ],
 
         'sqlite' => [
             'driver' => 'sqlite',

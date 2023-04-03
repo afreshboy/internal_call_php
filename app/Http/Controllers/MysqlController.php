@@ -20,4 +20,12 @@ class MysqlController extends Controller
     {
         return MysqlOp::delete($request->input('table', 'person'), $request->input('name', 'Jack'));
     }
+
+    function get2(Request $request) {
+        return MysqlOp::get2();
+    }
+    function insert2(Request $request)
+    {
+        return MysqlOp::insert2();
+    }
 }

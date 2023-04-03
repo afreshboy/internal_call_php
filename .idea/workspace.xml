@@ -7,8 +7,12 @@
     <list default="true" id="3583d0dd-0ed7-4b4d-8ca9-9abdbe900e45" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../internal_call_nodejs/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../internal_call_nodejs/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MysqlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MysqlController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MysqlOp.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MysqlOp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../internal_call_python/internal_call_python/internal_call.py" beforeDir="false" afterPath="$PROJECT_DIR$/../internal_call_python/internal_call_python/internal_call.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../internal_call_python/internal_call_python/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../internal_call_python/internal_call_python/views.py" afterDir="false" />
     </list>

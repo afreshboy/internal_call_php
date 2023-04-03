@@ -35,5 +35,7 @@ Route::prefix('/mysql')->group(function () {
     Route::post('/get', [\App\Http\Controllers\MysqlController::class, 'get']);
     Route::post('/insert', [\App\Http\Controllers\MysqlController::class, 'insert']);
     Route::post('/delete', [\App\Http\Controllers\MysqlController::class, 'delete']);
+    Route::post('/get2', [\App\Http\Controllers\MysqlController::class, 'get']);
+    Route::post('/insert2', [\App\Http\Controllers\MysqlController::class, 'insert']);
 });
 

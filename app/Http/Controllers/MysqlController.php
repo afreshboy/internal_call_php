@@ -9,7 +9,7 @@ use Illuminate\Http\Response;
 class MysqlController extends Controller
 {
     function get(Request $request) : array {
-        return MysqlOp::getByName($request->input('table', 'person'), $request->input('table', 'Jack'));
+        return MysqlOp::getByName($request->input('table', 'person'), $request->input('name', 'Jack'));
     }
     function insert(Request $request)
     {
@@ -18,6 +18,6 @@ class MysqlController extends Controller
 
     function delete(Request $request)
     {
-        return MysqlOp::delete($request->input('table', 'person'), $request->input('table', 'Jack'));
+        return MysqlOp::delete($request->input('table', 'person'), $request->input('name', 'Jack'));
     }
 }

@@ -13,7 +13,7 @@ class MysqlController extends Controller
     }
     function insert(Request $request)
     {
-        return MysqlOp::insertPerson($request->input('table', 'person'), $request->input('table', 'data'));
+        return MysqlOp::insertPerson($request->input('table', 'person'), $request->input('data', []));
     }
 
     function delete(Request $request)

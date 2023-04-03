@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3583d0dd-0ed7-4b4d-8ca9-9abdbe900e45" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../internal_call_nodejs/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../internal_call_nodejs/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../internal_call_python/internal_call_python/internal_call.py" beforeDir="false" afterPath="$PROJECT_DIR$/../internal_call_python/internal_call_python/internal_call.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../internal_call_python/internal_call_python/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../internal_call_python/internal_call_python/views.py" afterDir="false" />
+    <list default="true" id="eec45b96-236d-4af3-a9bb-f58634b3f733" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BaseReqController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BaseReqController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

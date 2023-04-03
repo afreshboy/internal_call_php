@@ -19,6 +19,11 @@ class BaseReqController extends Controller
         $num2 = $request->input('num2', 0);
         return (int)$num1 + (int)$num2;
     }
+
+    public function test()
+    {
+        return bcmod("5", "2");
+    }
 }
 
 

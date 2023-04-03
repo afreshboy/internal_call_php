@@ -29,6 +29,7 @@ Route::prefix('/api/v1')->group(function () {
     Route::get('/get_count', [\App\Http\Controllers\BaseReqController::class, 'get_count']);
     Route::post('/post_count', [\App\Http\Controllers\BaseReqController::class, 'post_count']);
     Route::get('/internal_call', [\App\Http\Controllers\InternalCallController::class, 'internal_call']);
+    Route::get('/test', [\App\Http\Controllers\BaseReqController::class, 'test']);
 });
 
 

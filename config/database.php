@@ -46,8 +46,8 @@ return [
         'mysql' => [
             'driver' => 'mysql',
 //            'url' => env('DATABASE_URL'),
-            'host' => explode(getenv('MYSQL_ADDRESS'), ':')[0],
-            'port' => explode(getenv('MYSQL_ADDRESS'), ':')[1],
+            'host' => explode(':', getenv('MYSQL_ADDRESS'))[0],
+            'port' => explode(':', getenv('MYSQL_ADDRESS'))[1],
             'database' => env('DB_DATABASE', 'laravel'),
             'username' => getenv('MYSQL_USERNAME', 'root'),
             'password' => getenv('MYSQL_PASSWORD', ''),

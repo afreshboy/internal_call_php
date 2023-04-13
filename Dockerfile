@@ -3,15 +3,13 @@ FROM php:8-fpm
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 
-RUN apt-get clean && apt-get update && apt-get install -y bash && apt-get install -y vim && apt-get install -y nginx
-
-RUN apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev
+RUN apt-get clean && apt-get update && apt-get install -y bash vim nginx libcurl4-openssl-dev pkg-config libssl-dev
 RUN pecl update-channels \
-	&& pecl install mongodb \
-    && docker-php-ext-enable mongodb
+	&& pecl install mongodb redis \
+    && docker-php-ext-enable mongodb redis
 
 WORKDIR /opt/application
-copy . .
+COPY . .
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN cp /opt/application/conf/nginx.conf /etc/nginx/conf.d/default.conf \
     # 关闭清理环境变量设置
@@ -24,6 +22,4 @@ RUN chmod -R 777 /opt/application/vendor/autoload.php run.sh /usr/local/log /opt
 
 
 EXPOSE 8000
-
-#CMD /opt/application/run.sh
 

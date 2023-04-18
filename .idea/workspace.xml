@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eec45b96-236d-4af3-a9bb-f58634b3f733" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../internal_call_nodejs/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../internal_call_nodejs/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/internal_call_php.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/internal_call_php.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../internal_call_python/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../internal_call_python/Dockerfile" afterDir="false" />

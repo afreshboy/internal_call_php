@@ -5,7 +5,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
 
 RUN apt-get clean && apt-get update && apt-get install -y bash vim nginx libcurl4-openssl-dev pkg-config libssl-dev
 RUN pecl update-channels \
-	&& pecl install mongodb redis \
+	&& pecl install https://pecl.php.net/get/mongodb-1.15.1.tgz https://pecl.php.net/get/redis-5.3.7.tgz \
     && docker-php-ext-enable mongodb redis
 
 WORKDIR /opt/application
